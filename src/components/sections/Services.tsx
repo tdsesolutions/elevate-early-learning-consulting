@@ -1,128 +1,107 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { SectionHeading } from "@/components/ui/SectionHeading";
+import { fadeInUp, staggerContainer, viewportConfig } from "@/lib/animations";
+import { SERVICES } from "@/lib/constants";
 import {
-  FileCheck,
+  FileText,
   Shield,
   ClipboardCheck,
   Apple,
   Utensils,
   BookOpen,
   Users,
-  Award,
+  Star,
 } from "lucide-react";
-import { ServiceCard } from "@/components/ui/ServiceCard";
 
-const services = [
-  {
-    title: "Policies & Procedures",
-    description:
-      "Develop comprehensive, compliant policy manuals tailored to your childcare center's unique needs and Texas state requirements.",
-    icon: FileCheck,
-  },
-  {
-    title: "Risk Management",
-    description:
-      "Identify potential hazards, implement safety protocols, and create proactive strategies to protect children, staff, and your business.",
-    icon: Shield,
-  },
-  {
-    title: "Opening Inspections",
-    description:
-      "Thorough pre-opening assessments to ensure your facility meets all licensing standards before your official launch day.",
-    icon: ClipboardCheck,
-  },
-  {
-    title: "CACFP Guidance",
-    description:
-      "Navigate the Child and Adult Care Food Program with expert support for compliance, documentation, and reimbursement optimization.",
-    icon: Apple,
-  },
-  {
-    title: "Menu Planning",
-    description:
-      "Create nutritious, age-appropriate meal plans that satisfy CACFP guidelines while delighting young palates.",
-    icon: Utensils,
-  },
-  {
-    title: "Curriculum Development",
-    description:
-      "Design engaging, developmentally appropriate learning experiences that foster growth across all developmental domains.",
-    icon: BookOpen,
-  },
-  {
-    title: "Classroom Management",
-    description:
-      "Establish positive behavior guidance systems and organized learning environments that promote children's success.",
-    icon: Users,
-  },
-  {
-    title: "Texas Rising Star & Texas School Ready Support",
-    description:
-      "Achieve and maintain quality ratings with expert guidance through Texas's esteemed early childhood certification programs.",
-    icon: Award,
-  },
-];
+const iconMap: { [key: string]: React.ElementType } = {
+  FileText,
+  Shield,
+  ClipboardCheck,
+  Apple,
+  Utensils,
+  BookOpen,
+  Users,
+  Star,
+};
 
 export function Services() {
   return (
-    <section
-      id="services"
-      className="relative overflow-hidden bg-zinc-50 py-24 dark:bg-zinc-950 lg:py-32"
-    >
-      {/* Subtle background pattern */}
-      <div className="pointer-events-none absolute inset-0 opacity-[0.015]">
-        <div
-          className="h-full w-full"
-          style={{
-            backgroundImage: `radial-gradient(circle at 1px 1px, currentColor 1px, transparent 0)`,
-            backgroundSize: "40px 40px",
-          }}
-        />
-      </div>
-
-      <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
-        {/* Section header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="mx-auto max-w-2xl text-center"
-        >
-          <span className="mb-4 inline-block text-sm font-medium tracking-wider text-emerald-600 uppercase dark:text-emerald-400">
-            What We Offer
-          </span>
-          <h2 className="text-3xl font-bold tracking-tight text-zinc-900 dark:text-zinc-50 sm:text-4xl lg:text-5xl">
-            Our Services
-          </h2>
-          <p className="mt-4 text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Comprehensive consulting solutions designed to elevate your early
-            learning program and ensure your success.
+    <section id="services" className="py-20 md:py-32 bg-[#F8FAFC]">
+      <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-10">
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <SectionHeading
+            subtitle="Our Services"
+            title="Comprehensive Solutions for Your Child Care Center"
+            centered
+          />
+          <p className="text-[#475569] mt-4">
+            From licensing preparation to curriculum development, we provide expert
+            guidance tailored to your center&apos;s unique needs.
           </p>
+        </div>
+
+        <motion.div
+          initial="initial"
+          whileInView="animate"
+          viewport={viewportConfig}
+          variants={staggerContainer}
+          className="grid md:grid-cols-2 lg:grid-cols-4 gap-6"
+        >
+          {SERVICES.map((service, index) => {
+            const Icon = iconMap[service.icon];
+            return (
+              <motion.div
+                key={index}
+                variants={fadeInUp}
+                className="group bg-white rounded-2xl p-6 shadow-sm hover:shadow-lg transition-all duration-300 border border-[#E2E8F0] hover:border-[#2DD4BF]/50"
+              >
+                <div className="w-14 h-14 bg-[#0F172A] rounded-xl flex items-center justify-center mb-5 group-hover:bg-[#2DD4BF] transition-colors duration-300">
+                  {Icon && <Icon className="w-7 h-7 text-white" />}
+                </div>
+                <h3 className="text-lg font-semibold text-[#0F172A] mb-3">
+                  {service.title}
+                </h3>
+                <p className="text-[#475569] text-sm leading-relaxed">
+                  {service.description}
+                </p>
+              </motion.div>
+            );
+          })}
         </motion.div>
 
-        {/* Decorative line */}
+        {/* CTA */}
         <motion.div
-          initial={{ scaleX: 0 }}
-          whileInView={{ scaleX: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="mx-auto mt-8 h-px w-24 bg-gradient-to-r from-transparent via-emerald-500 to-transparent"
-        />
-
-        {/* Services grid */}
-        <div className="mx-auto mt-16 grid max-w-6xl gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {services.map((service, index) => (
-            <ServiceCard
-              key={service.title}
-              title={service.title}
-              description={service.description}
-              icon={service.icon}
-              index={index}
-            />
-          ))}
-        </div>
+          initial={fadeInUp.initial}
+          whileInView={fadeInUp.animate}
+          viewport={viewportConfig}
+          transition={fadeInUp.transition}
+          className="mt-16 text-center"
+        >
+          <p className="text-[#475569] mb-6">
+            Need a service not listed here? We offer customized consulting solutions.
+          </p>
+          <a
+            href="/contact"
+            className="inline-flex items-center gap-2 text-[#2DD4BF] font-semibold hover:underline"
+          >
+            Let&apos;s discuss your needs
+            <svg
+              className="w-4 h-4"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M17 8l4 4m0 0l-4 4m4-4H3"
+              />
+            </svg>
+          </a>
+        </motion.div>
       </div>
     </section>
   );

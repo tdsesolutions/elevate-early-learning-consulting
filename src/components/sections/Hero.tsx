@@ -1,166 +1,138 @@
 "use client";
 
+import { motion } from "framer-motion";
+import { Button } from "@/components/ui/Button";
+import { fadeInUp, viewportConfig } from "@/lib/animations";
+import { ArrowRight, Award, Users, Clock } from "lucide-react";
 import Link from "next/link";
 
-export default function Hero() {
+export function Hero() {
   return (
-    <section className="relative w-full overflow-hidden bg-gradient-to-b from-amber-50 via-white to-white">
+    <section
+      id="home"
+      className="relative min-h-screen flex items-center pt-20 overflow-hidden"
+    >
       {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-[0.03]">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `radial-gradient(circle at 2px 2px, #f59e0b 1px, transparent 0)`,
-            backgroundSize: "40px 40px",
-          }}
-        />
-      </div>
+      <div className="absolute inset-0 bg-gradient-to-br from-[#F8FAFC] via-white to-[#F1F5F9]" />
+      <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-[#2DD4BF]/5 to-transparent" />
 
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
+      <div className="relative max-w-7xl mx-auto px-6 md:px-8 lg:px-10 py-20">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Content */}
-          <div className="text-center lg:text-left">
-            <div className="inline-flex items-center gap-2 rounded-full bg-amber-100 px-4 py-1.5 mb-6">
-              <span className="flex h-2 w-2 rounded-full bg-amber-500 animate-pulse" />
-              <span className="text-sm font-medium text-amber-800">
-                Early Childhood Education Specialists
-              </span>
+          <motion.div
+            initial={fadeInUp.initial}
+            animate={fadeInUp.animate}
+            transition={fadeInUp.transition}
+          >
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#2DD4BF]/10 text-[#0F172A] text-sm font-medium mb-6">
+              <Award className="w-4 h-4 text-[#2DD4BF]" />
+              Professional Child Care Consulting
             </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-900 leading-tight mb-6">
-              Elevating Early
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-orange-500">
-                Learning Experiences
-              </span>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#0F172A] leading-tight mb-6">
+              Elevate Your{" "}
+              <span className="text-[#2DD4BF]">Child Care Center</span> to New
+              Heights
             </h1>
 
-            <p className="text-lg text-slate-600 mb-8 max-w-xl mx-auto lg:mx-0 leading-relaxed">
-              We partner with early childhood programs to create nurturing,
-              developmentally appropriate environments where every child can
-              thrive, learn, and grow to their full potential.
+            <p className="text-lg text-[#475569] leading-relaxed mb-8 max-w-xl">
+              Ensuring Safety, Quality, & Assurance one Child, Center & Director
+              at a Time. Expert guidance for child care centers, directors, and
+              owners across Texas.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-              <Link
-                href="/contact"
-                className="rounded-full bg-amber-500 px-8 py-4 text-white font-semibold hover:bg-amber-600 transition-all shadow-lg shadow-amber-500/25 hover:shadow-amber-500/40 text-center"
-              >
-                Start Your Journey
+            <div className="flex flex-col sm:flex-row gap-4 mb-12">
+              <Link href="/contact">
+                <Button size="lg" className="w-full sm:w-auto">
+                  Schedule Consultation
+                  <ArrowRight className="w-4 h-4 ml-2" />
+                </Button>
               </Link>
-              <Link
-                href="/#services"
-                className="rounded-full border-2 border-slate-200 px-8 py-4 text-slate-700 font-semibold hover:border-amber-500 hover:text-amber-600 transition-all text-center"
+              <Button
+                variant="outline"
+                size="lg"
+                onClick={() =>
+                  document
+                    .getElementById("services")
+                    ?.scrollIntoView({ behavior: "smooth" })
+                }
               >
                 Explore Services
-              </Link>
+              </Button>
             </div>
 
             {/* Stats */}
-            <div className="mt-12 grid grid-cols-3 gap-8 border-t border-slate-200 pt-8">
+            <div className="grid grid-cols-3 gap-6 pt-8 border-t border-[#E2E8F0]">
               <div>
-                <div className="text-2xl sm:text-3xl font-bold text-slate-900">10+</div>
-                <div className="text-sm text-slate-500 mt-1">Years Experience</div>
+                <div className="text-3xl font-bold text-[#0F172A]">10+</div>
+                <div className="text-sm text-[#475569]">Years Experience</div>
               </div>
               <div>
-                <div className="text-2xl sm:text-3xl font-bold text-slate-900">500+</div>
-                <div className="text-sm text-slate-500 mt-1">Children Served</div>
+                <div className="text-3xl font-bold text-[#0F172A]">50+</div>
+                <div className="text-sm text-[#475569]">Centers Helped</div>
               </div>
               <div>
-                <div className="text-2xl sm:text-3xl font-bold text-slate-900">50+</div>
-                <div className="text-sm text-slate-500 mt-1">Partner Programs</div>
+                <div className="text-3xl font-bold text-[#0F172A]">100%</div>
+                <div className="text-sm text-[#475569]">Commitment</div>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Image/Visual */}
-          <div className="relative hidden lg:block">
-            <div className="relative">
-              {/* Decorative circles */}
-              <div className="absolute -top-10 -right-10 w-72 h-72 bg-amber-200 rounded-full opacity-20 blur-3xl" />
-              <div className="absolute -bottom-10 -left-10 w-72 h-72 bg-orange-200 rounded-full opacity-20 blur-3xl" />
-
-              {/* Main content card */}
-              <div className="relative bg-white rounded-3xl shadow-2xl p-8 border border-amber-100">
-                <div className="aspect-[4/3] bg-gradient-to-br from-amber-100 to-orange-50 rounded-2xl flex items-center justify-center mb-6">
-                  <div className="text-center">
-                    <div className="w-24 h-24 mx-auto bg-gradient-to-br from-amber-400 to-orange-500 rounded-2xl flex items-center justify-center shadow-lg mb-4">
-                      <svg
-                        className="w-12 h-12 text-white"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
-                        />
-                      </svg>
-                    </div>
-                    <p className="text-slate-600 font-medium">Building Bright Futures</p>
-                  </div>
-                </div>
-
-                <div className="space-y-4">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center">
-                      <svg
-                        className="w-5 h-5 text-green-600"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M5 13l4 4L19 7"
-                        />
-                      </svg>
-                    </div>
-                    <span className="text-slate-700">Play-Based Learning</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center">
-                      <svg
-                        className="w-5 h-5 text-blue-600"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M5 13l4 4L19 7"
-                        />
-                      </svg>
-                    </div>
-                    <span className="text-slate-700">Developmental Assessments</span>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center">
-                      <svg
-                        className="w-5 h-5 text-purple-600"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M5 13l4 4L19 7"
-                        />
-                      </svg>
-                    </div>
-                    <span className="text-slate-700">Family Engagement</span>
-                  </div>
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="relative hidden lg:block"
+          >
+            <div className="relative bg-gradient-to-br from-[#0F172A] to-[#1E293B] rounded-3xl p-8 shadow-2xl">
+              <div className="aspect-square bg-gradient-to-br from-[#2DD4BF]/20 to-[#14B8A6]/20 rounded-2xl flex items-center justify-center">
+                <div className="text-center text-white">
+                  <Users className="w-20 h-20 mx-auto mb-4 text-[#2DD4BF]" />
+                  <p className="text-2xl font-bold">Building Bright Futures</p>
                 </div>
               </div>
+
+              {/* Floating Cards */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5 }}
+                className="absolute -left-8 top-1/4 bg-white rounded-xl p-4 shadow-lg"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 bg-[#2DD4BF]/10 rounded-lg flex items-center justify-center">
+                    <Clock className="w-5 h-5 text-[#2DD4BF]" />
+                  </div>
+                  <div>
+                    <div className="text-sm font-semibold text-[#0F172A]">
+                      Quick Response
+                    </div>
+                    <div className="text-xs text-[#475569]">24hr Support</div>
+                  </div>
+                </div>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.7 }}
+                className="absolute -right-4 bottom-1/4 bg-white rounded-xl p-4 shadow-lg"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-10 h-10 bg-[#2DD4BF] rounded-lg flex items-center justify-center">
+                    <Award className="w-5 h-5 text-white" />
+                  </div>
+                  <div>
+                    <div className="text-sm font-semibold text-[#0F172A]">
+                      Licensed Expert
+                    </div>
+                    <div className="text-xs text-[#475569]">M.Ed. Certified</div>
+                  </div>
+                </div>
+              </motion.div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

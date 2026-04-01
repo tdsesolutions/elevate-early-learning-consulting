@@ -1,96 +1,111 @@
-export default function Story() {
-  return (
-    <section id="story" className="w-full bg-white py-20 lg:py-32">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Image Side */}
-          <div className="relative order-2 lg:order-1">
-            <div className="relative">
-              {/* Decorative elements */}
-              <div className="absolute -top-4 -left-4 w-24 h-24 bg-amber-200 rounded-full opacity-50" />
-              <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-orange-200 rounded-full opacity-50" />
+"use client";
 
-              {/* Main image container */}
-              <div className="relative bg-gradient-to-br from-amber-50 to-orange-50 rounded-3xl p-8 border border-amber-100">
-                <div className="aspect-square bg-white rounded-2xl shadow-lg flex items-center justify-center">
-                  <div className="text-center p-8">
-                    <div className="w-20 h-20 mx-auto bg-gradient-to-br from-amber-400 to-orange-500 rounded-full flex items-center justify-center mb-4">
-                      <svg
-                        className="w-10 h-10 text-white"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-                        />
-                      </svg>
-                    </div>
-                    <h3 className="text-xl font-semibold text-slate-800 mb-2">
-                      Passion for Early Learning
-                    </h3>
-                    <p className="text-slate-500">
-                      Where every child&apos;s potential is nurtured
-                    </p>
+import { motion } from "framer-motion";
+import { SectionHeading } from "@/components/ui/SectionHeading";
+import { fadeInUp, slideInLeft, slideInRight, viewportConfig } from "@/lib/animations";
+import { CheckCircle } from "lucide-react";
+import Image from "next/image";
+
+const features = [
+  "Over a decade of experience in early childhood education",
+  "Licensed by the Texas Department of Family and Protective Services",
+  "Masters Degree in Education (M.Ed.)",
+  "Passionate about child safety, development, and quality care",
+  "Dedicated to empowering centers, directors, and owners",
+];
+
+export function Story() {
+  return (
+    <section id="about" className="py-20 md:py-32 bg-white">
+      <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-10">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          {/* Image */}
+          <motion.div
+            initial={slideInLeft.initial}
+            whileInView={slideInLeft.animate}
+            viewport={viewportConfig}
+            transition={slideInLeft.transition}
+            className="relative"
+          >
+            <div className="relative bg-gradient-to-br from-[#0F172A] to-[#1E293B] rounded-3xl overflow-hidden shadow-xl">
+              <div className="aspect-[4/5] bg-gradient-to-br from-[#2DD4BF]/10 to-transparent flex items-center justify-center p-8">
+                <div className="text-center text-white">
+                  <div className="w-32 h-32 mx-auto mb-6 bg-[#2DD4BF]/20 rounded-full flex items-center justify-center">
+                    <span className="text-5xl">👩‍🏫</span>
                   </div>
+                  <h3 className="text-2xl font-bold mb-2">Ms. Tanisha Butler</h3>
+                  <p className="text-white/70">Founder & Lead Consultant</p>
+                  <p className="text-[#2DD4BF] mt-2">M.Ed. | Licensed Professional</p>
                 </div>
               </div>
             </div>
-          </div>
 
-          {/* Content Side */}
-          <div className="order-1 lg:order-2">
-            <div className="inline-flex items-center gap-2 rounded-full bg-amber-100 px-4 py-1.5 mb-6">
-              <span className="text-sm font-medium text-amber-800">
-                Our Story
-              </span>
-            </div>
+            {/* Experience Badge */}
+            <motion.div
+              initial={{ scale: 0 }}
+              whileInView={{ scale: 1 }}
+              viewport={viewportConfig}
+              transition={{ delay: 0.3, type: "spring" }}
+              className="absolute -bottom-6 -right-6 bg-[#2DD4BF] text-[#0F172A] rounded-2xl p-6 shadow-lg"
+            >
+              <div className="text-4xl font-bold">10+</div>
+              <div className="text-sm font-medium">Years Experience</div>
+            </motion.div>
+          </motion.div>
 
-            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-6 leading-tight">
-              Rooted in Passion,{" "}
-              <span className="text-amber-600">Growing with Purpose</span>
-            </h2>
+          {/* Content */}
+          <motion.div
+            initial={slideInRight.initial}
+            whileInView={slideInRight.animate}
+            viewport={viewportConfig}
+            transition={slideInRight.transition}
+          >
+            <SectionHeading
+              subtitle="Our Story"
+              title="Meet the Heart Behind Elevate Early Learning"
+            />
 
-            <div className="space-y-4 text-slate-600 leading-relaxed">
+            <div className="space-y-6 text-[#475569] leading-relaxed">
               <p>
-                Elevate Early Learning & Consulting was born from a deep passion
-                for early childhood education and a belief that every child deserves
-                the best possible start in life. Founded by educators with decades
-                of combined experience, we understand the unique challenges and
-                rewards of nurturing young minds.
+                Elevate Early Learning & Consulting was founded by Ms. Tanisha Butler,
+                a passionate early childhood professional with a Master&apos;s Degree in
+                Education and over a decade of hands-on experience in the child care
+                industry.
               </p>
 
               <p>
-                Our journey began in classrooms, where we witnessed firsthand the
-                transformative power of quality early education. We saw children
-                blossom when given the right environment, caring teachers, and
-                developmentally appropriate practices. This inspired us to expand
-                our reach and help more programs achieve excellence.
+                Licensed by the Texas Department of Family and Protective Services,
+                Tanisha has dedicated her career to ensuring that child care centers
+                across Texas operate with the highest standards of safety, quality,
+                and educational excellence.
               </p>
 
               <p>
-                Today, we partner with childcare centers, preschools, and early
-                learning programs across the region, providing consulting services
-                that make a real difference. From curriculum development to staff
-                training, we bring expertise, compassion, and a commitment to
-                elevating the standard of early childhood education.
+                Her mission is simple yet powerful: to ensure safety, quality, and
+                assurance—one child, one center, and one director at a time.
               </p>
             </div>
 
-            <div className="mt-8 grid grid-cols-2 gap-6">
-              <div className="border-l-4 border-amber-500 pl-4">
-                <div className="text-2xl font-bold text-slate-900">2014</div>
-                <div className="text-sm text-slate-500">Year Founded</div>
-              </div>
-              <div className="border-l-4 border-orange-500 pl-4">
-                <div className="text-2xl font-bold text-slate-900">100%</div>
-                <div className="text-sm text-slate-500">Commitment to Quality</div>
-              </div>
-            </div>
-          </div>
+            {/* Features List */}
+            <motion.div
+              initial="initial"
+              whileInView="animate"
+              viewport={viewportConfig}
+              className="mt-8 space-y-4"
+            >
+              {features.map((feature, index) => (
+                <motion.div
+                  key={index}
+                  variants={fadeInUp}
+                  custom={index}
+                  className="flex items-start gap-3"
+                >
+                  <CheckCircle className="w-5 h-5 text-[#2DD4BF] flex-shrink-0 mt-0.5" />
+                  <span className="text-[#0F172A]">{feature}</span>
+                </motion.div>
+              ))}
+            </motion.div>
+          </motion.div>
         </div>
       </div>
     </section>
