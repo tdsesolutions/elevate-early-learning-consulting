@@ -11,11 +11,21 @@ export default function Home() {
     <>
       <Navbar />
       <main className="flex-1">
-        <Hero />
-        <Story />
-        <Services />
-        <Mission />
-        <ContactSection />
+        <section id="home">
+          <Hero />
+        </section>
+        <section id="about">
+          <Story />
+        </section>
+        <section id="services">
+          <Services />
+        </section>
+        <section id="mission">
+          <Mission />
+        </section>
+        <section id="contact">
+          <ContactSection />
+        </section>
       </main>
       <Footer />
     </>
