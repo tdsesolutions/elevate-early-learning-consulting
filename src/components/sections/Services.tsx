@@ -2,29 +2,31 @@
 
 import { motion } from "framer-motion";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { cardStagger, viewportConfig, hoverLift, hoverGlow } from "@/lib/animations";
-import { SERVICES } from "@/lib/constants";
-import {
-  FileText,
-  Shield,
-  ClipboardCheck,
-  Apple,
-  Utensils,
-  BookOpen,
-  Users,
-  Star,
-} from "lucide-react";
+import { cardStagger, viewportConfig } from "@/lib/animations";
 
-const iconMap: { [key: string]: React.ElementType } = {
-  FileText,
-  Shield,
-  ClipboardCheck,
-  Apple,
-  Utensils,
-  BookOpen,
-  Users,
-  Star,
-};
+// Service data with illustration placeholders
+const FEATURED_SERVICES = [
+  {
+    title: "Instructional Support",
+    description: "Expert guidance on curriculum development, lesson planning, and instructional strategies tailored to early childhood education.",
+    imagePosition: "top",
+  },
+  {
+    title: "Staffing Solutions",
+    description: "Comprehensive support for hiring, training, and retaining qualified early childhood educators and staff.",
+    imagePosition: "top",
+  },
+  {
+    title: "Program Development",
+    description: "Strategic planning and systems development to create structured, compliant, and effective child care programs.",
+    imagePosition: "top",
+  },
+  {
+    title: "Student Engagement",
+    description: "Proven approaches to create active, positive learning environments where children thrive and develop.",
+    imagePosition: "top",
+  },
+];
 
 export function Services() {
   return (
@@ -37,56 +39,46 @@ export function Services() {
             centered
           />
           <p className="text-[#475569] mt-4">
-            From licensing preparation to curriculum development, we provide expert
+            From instructional support to program development, we provide expert
             guidance tailored to your center&apos;s unique needs.
           </p>
         </div>
 
+        {/* Services Grid with Illustration Placeholders */}
         <motion.div
           variants={cardStagger.container}
           initial="initial"
           whileInView="animate"
           viewport={viewportConfig}
-          className="grid md:grid-cols-2 lg:grid-cols-4 gap-6"
+          className="grid md:grid-cols-2 gap-8"
         >
-          {SERVICES.map((service, index) => {
-            const Icon = iconMap[service.icon];
-            return (
-              <motion.div
-                key={index}
-                variants={cardStagger.item}
-                whileHover={{ 
-                  y: -8, 
-                  boxShadow: "0 20px 40px rgba(15, 23, 42, 0.08)",
-                  borderColor: "rgba(45, 212, 191, 0.3)"
-                }}
-                transition={{ duration: 0.3 }}
-                className="group bg-white rounded-2xl p-6 shadow-sm border border-[#E2E8F0] cursor-pointer"
-              >
-                <motion.div 
-                  className="w-14 h-14 bg-[#0F172A] rounded-xl flex items-center justify-center mb-5 transition-colors duration-300 group-hover:bg-[#2DD4BF]"
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.2 }}
-                >
-                  {Icon && (
-                    <motion.div
-                      initial={{ rotate: 0 }}
-                      whileHover={{ rotate: 5 }}
-                      transition={{ duration: 0.2 }}
-                    >
-                      <Icon className="w-7 h-7 text-white" />
-                    </motion.div>
-                  )}
-                </motion.div>
-                <h3 className="text-lg font-semibold text-[#0F172A] mb-3 group-hover:text-[#0F172A]">
+          {FEATURED_SERVICES.map((service, index) => (
+            <motion.div
+              key={index}
+              variants={cardStagger.item}
+              whileHover={{ 
+                y: -4, 
+                boxShadow: "0 20px 40px rgba(15, 23, 42, 0.08)"
+              }}
+              transition={{ duration: 0.3 }}
+              className="group bg-white rounded-2xl overflow-hidden shadow-sm border border-[#E2E8F0] cursor-pointer"
+            >
+              {/* Service Illustration Placeholder - Aspect Ratio 4:3 */}
+              <div className="aspect-[4/3] w-full bg-[#E5E7EB] flex items-center justify-center">
+                <span className="text-sm text-[#6B7280] font-medium">Illustration Placeholder</span>
+              </div>
+              
+              {/* Content */}
+              <div className="p-6">
+                <h3 className="text-xl font-semibold text-[#0F172A] mb-3">
                   {service.title}
                 </h3>
-                <p className="text-[#475569] text-sm leading-relaxed">
+                <p className="text-[#475569] leading-relaxed">
                   {service.description}
                 </p>
-              </motion.div>
-            );
-          })}
+              </div>
+            </motion.div>
+          ))}
         </motion.div>
 
         {/* CTA */}

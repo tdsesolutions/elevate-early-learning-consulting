@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/Button";
 import { fadeInUp, slideInLeft, slideInRight, viewportConfig } from "@/lib/animations";
 import { SITE_CONFIG } from "@/lib/constants";
 import { MapPin, Phone, Mail, Clock, ArrowRight } from "lucide-react";
+
 import Link from "next/link";
 
 const contactDetails = [
@@ -93,7 +94,7 @@ export function ContactSection() {
             </Link>
           </motion.div>
 
-          {/* Visual/Card - updated messaging */}
+          {/* Visual - Contact/CTA Illustration Placeholder */}
           <motion.div
             initial={slideInRight.initial}
             whileInView={slideInRight.animate}
@@ -101,49 +102,9 @@ export function ContactSection() {
             transition={slideInRight.transition}
             className="relative"
           >
-            <div className="bg-gradient-to-br from-[#0F172A] to-[#1E293B] rounded-3xl p-8 md:p-10 shadow-xl">
-              <div className="text-center mb-8">
-                <div className="w-20 h-20 mx-auto bg-[#2DD4BF] rounded-full flex items-center justify-center mb-6">
-                  <Mail className="w-10 h-10 text-[#0F172A]" />
-                </div>
-                <h3 className="text-2xl font-bold text-white mb-2">
-                  Start a Partnership
-                </h3>
-                <p className="text-white/70">
-                  We&apos;re here to support your center&apos;s growth and success
-                </p>
-              </div>
-
-              <div className="space-y-4">
-                <div className="flex items-center gap-4 p-4 bg-white/5 rounded-xl">
-                  <div className="w-8 h-8 bg-[#2DD4BF] rounded-full flex items-center justify-center flex-shrink-0">
-                    <span className="text-[#0F172A] font-bold text-sm">1</span>
-                  </div>
-                  <span className="text-white">Share your center&apos;s situation</span>
-                </div>
-                <div className="flex items-center gap-4 p-4 bg-white/5 rounded-xl">
-                  <div className="w-8 h-8 bg-[#2DD4BF] rounded-full flex items-center justify-center flex-shrink-0">
-                    <span className="text-[#0F172A] font-bold text-sm">2</span>
-                  </div>
-                  <span className="text-white">
-                    Receive personalized guidance
-                  </span>
-                </div>
-                <div className="flex items-center gap-4 p-4 bg-white/5 rounded-xl">
-                  <div className="w-8 h-8 bg-[#2DD4BF] rounded-full flex items-center justify-center flex-shrink-0">
-                    <span className="text-[#0F172A] font-bold text-sm">3</span>
-                  </div>
-                  <span className="text-white">
-                    Move forward with confidence
-                  </span>
-                </div>
-              </div>
-
-              <Link href="/contact" className="block mt-8">
-                <Button size="lg" className="w-full">
-                  Connect With Us
-                </Button>
-              </Link>
+            {/* Aspect Ratio 1:1 for Contact/CTA */}
+            <div className="aspect-[1/1] w-full bg-[#E5E7EB] rounded-xl flex items-center justify-center overflow-hidden">
+              <span className="text-sm text-[#6B7280] font-medium">Illustration Placeholder</span>
             </div>
           </motion.div>
         </div>

@@ -56,13 +56,11 @@ export const slideInRight = {
 
 // Float animation - for hero visual
 export const floatAnimation = {
-  animate: {
-    y: [-8, 8, -8],
-    transition: {
-      duration: 6,
-      repeat: Infinity,
-      ease: "easeInOut",
-    },
+  y: [-8, 8, -8],
+  transition: {
+    duration: 6,
+    repeat: Infinity,
+    ease: "easeInOut" as const,
   },
 };
 

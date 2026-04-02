@@ -10,7 +10,7 @@ export function Story() {
     <section id="about" className="py-20 md:py-32 bg-white">
       <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Visual */}
+          {/* Visual - Founder Story Illustration Placeholder */}
           <motion.div
             initial={slideInLeft.initial}
             whileInView={slideInLeft.animate}
@@ -18,20 +18,12 @@ export function Story() {
             transition={slideInLeft.transition}
             className="relative"
           >
-            <div className="relative bg-gradient-to-br from-[#0F172A] to-[#1E293B] rounded-3xl overflow-hidden shadow-xl">
-              <div className="aspect-[4/5] bg-gradient-to-br from-[#2DD4BF]/10 to-transparent flex items-center justify-center p-8">
-                <div className="text-center text-white">
-                  <div className="w-32 h-32 mx-auto mb-6 bg-[#2DD4BF]/20 rounded-full flex items-center justify-center">
-                    <span className="text-5xl">👩‍🏫</span>
-                  </div>
-                  <h3 className="text-2xl font-bold mb-2">Ms. Tanisha Butler</h3>
-                  <p className="text-white/70">Founder & Lead Consultant</p>
-                  <p className="text-[#2DD4BF] mt-2">M.Ed. | Licensed Professional</p>
-                </div>
-              </div>
+            {/* Aspect Ratio 4:5 */}
+            <div className="aspect-[4/5] w-full bg-[#E5E7EB] rounded-xl flex items-center justify-center overflow-hidden shadow-xl">
+              <span className="text-sm text-[#6B7280] font-medium">Illustration Placeholder</span>
             </div>
 
-            {/* Accent badge - removed years stat */}
+            {/* Accent badge */}
             <motion.div
               initial={{ scale: 0 }}
               whileInView={{ scale: 1 }}

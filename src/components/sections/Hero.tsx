@@ -115,7 +115,7 @@ export function Hero() {
             </motion.div>
           </div>
 
-          {/* Right visual - branded style */}
+          {/* Right visual - illustration placeholder */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -123,50 +123,12 @@ export function Hero() {
             className="relative hidden lg:block"
           >
             <motion.div
-              variants={floatAnimation}
-              animate="animate"
+              animate={floatAnimation}
               className="relative"
             >
-              {/* Main visual container */}
-              <div className="relative bg-gradient-to-br from-[#0F172A] to-[#1E293B] rounded-3xl p-10 shadow-2xl">
-                {/* Brand-style decorative element */}
-                <div className="absolute -top-6 -right-6 w-24 h-24 bg-[#2DD4BF] rounded-2xl opacity-80" />
-                <div className="absolute -bottom-4 -left-4 w-16 h-16 bg-[#2DD4BF]/30 rounded-full" />
-                
-                {/* Content */}
-                <div className="relative z-10 aspect-square max-w-sm mx-auto">
-                  <div className="h-full flex flex-col items-center justify-center text-center">
-                    {/* Logo-style icon */}
-                    <div className="w-32 h-32 mb-8 relative">
-                      <div className="absolute inset-0 bg-[#2DD4BF]/20 rounded-full" />
-                      <div className="absolute inset-4 bg-[#2DD4BF]/30 rounded-full" />
-                      <div className="absolute inset-8 bg-[#2DD4BF] rounded-full flex items-center justify-center">
-                        <svg 
-                          viewBox="0 0 24 24" 
-                          className="w-12 h-12 text-[#0F172A]"
-                          fill="none"
-                          stroke="currentColor"
-                          strokeWidth="2"
-                        >
-                          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-                        </svg>
-                      </div>
-                    </div>
-                    
-                    <h3 className="text-2xl font-bold text-white mb-2">
-                      Elevate Early Learning
-                    </h3>
-                    <p className="text-[#2DD4BF] font-medium">
-                      & Consulting
-                    </p>
-                    
-                    <div className="mt-6 flex gap-2">
-                      <span className="w-2 h-2 bg-[#2DD4BF] rounded-full" />
-                      <span className="w-2 h-2 bg-[#2DD4BF]/60 rounded-full" />
-                      <span className="w-2 h-2 bg-[#2DD4BF]/30 rounded-full" />
-                    </div>
-                  </div>
-                </div>
+              {/* Hero Illustration Placeholder - Aspect Ratio 16:10 */}
+              <div className="aspect-[16/10] w-full bg-[#E5E7EB] rounded-xl flex items-center justify-center overflow-hidden">
+                <span className="text-sm text-[#6B7280] font-medium">Illustration Placeholder</span>
               </div>
 
               {/* Floating accent cards */}
