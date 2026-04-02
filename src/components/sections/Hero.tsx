@@ -126,9 +126,13 @@ export function Hero() {
               animate={floatAnimation}
               className="relative"
             >
-              {/* Hero Illustration Placeholder - Aspect Ratio 16:10 */}
-              <div className="aspect-[16/10] w-full bg-[#E5E7EB] rounded-xl flex items-center justify-center overflow-hidden">
-                <span className="text-sm text-[#6B7280] font-medium">Illustration Placeholder</span>
+              {/* Hero Illustration - Aspect Ratio 16:10 */}
+              <div className="aspect-[16/10] w-full rounded-xl overflow-hidden shadow-2xl">
+                <img 
+                  src="/elevate-early-learning-consulting/images/hero.jpg" 
+                  alt="Educational consultant collaborating with school leader"
+                  className="w-full h-full object-cover"
+                />
               </div>
 
               {/* Floating accent cards */}

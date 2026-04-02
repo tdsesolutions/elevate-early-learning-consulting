@@ -103,8 +103,12 @@ export function ContactSection() {
             className="relative"
           >
             {/* Aspect Ratio 1:1 for Contact/CTA */}
-            <div className="aspect-[1/1] w-full bg-[#E5E7EB] rounded-xl flex items-center justify-center overflow-hidden">
-              <span className="text-sm text-[#6B7280] font-medium">Illustration Placeholder</span>
+            <div className="aspect-[1/1] w-full rounded-xl overflow-hidden shadow-xl">
+              <img 
+                src="/elevate-early-learning-consulting/images/contact.jpg"
+                alt="Partnership and collaboration"
+                className="w-full h-full object-cover"
+              />
             </div>
           </motion.div>
         </div>

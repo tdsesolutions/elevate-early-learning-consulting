@@ -4,27 +4,27 @@ import { motion } from "framer-motion";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { cardStagger, viewportConfig } from "@/lib/animations";
 
-// Service data with illustration placeholders
+// Service data with images
 const FEATURED_SERVICES = [
   {
     title: "Instructional Support",
     description: "Expert guidance on curriculum development, lesson planning, and instructional strategies tailored to early childhood education.",
-    imagePosition: "top",
+    image: "/elevate-early-learning-consulting/images/service-1.jpg",
   },
   {
     title: "Staffing Solutions",
     description: "Comprehensive support for hiring, training, and retaining qualified early childhood educators and staff.",
-    imagePosition: "top",
+    image: "/elevate-early-learning-consulting/images/service-2.jpg",
   },
   {
     title: "Program Development",
     description: "Strategic planning and systems development to create structured, compliant, and effective child care programs.",
-    imagePosition: "top",
+    image: "/elevate-early-learning-consulting/images/service-3.jpg",
   },
   {
     title: "Student Engagement",
     description: "Proven approaches to create active, positive learning environments where children thrive and develop.",
-    imagePosition: "top",
+    image: "/elevate-early-learning-consulting/images/service-4.jpg",
   },
 ];
 
@@ -63,9 +63,13 @@ export function Services() {
               transition={{ duration: 0.3 }}
               className="group bg-white rounded-2xl overflow-hidden shadow-sm border border-[#E2E8F0] cursor-pointer"
             >
-              {/* Service Illustration Placeholder - Aspect Ratio 4:3 */}
-              <div className="aspect-[4/3] w-full bg-[#E5E7EB] flex items-center justify-center">
-                <span className="text-sm text-[#6B7280] font-medium">Illustration Placeholder</span>
+              {/* Service Illustration - Aspect Ratio 4:3 */}
+              <div className="aspect-[4/3] w-full overflow-hidden">
+                <img 
+                  src={service.image}
+                  alt={service.title}
+                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                />
               </div>
               
               {/* Content */}

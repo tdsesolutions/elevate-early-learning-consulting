@@ -19,8 +19,12 @@ export function Story() {
             className="relative"
           >
             {/* Aspect Ratio 4:5 */}
-            <div className="aspect-[4/5] w-full bg-[#E5E7EB] rounded-xl flex items-center justify-center overflow-hidden shadow-xl">
-              <span className="text-sm text-[#6B7280] font-medium">Illustration Placeholder</span>
+            <div className="aspect-[4/5] w-full rounded-xl overflow-hidden shadow-xl">
+              <img 
+                src="/elevate-early-learning-consulting/images/founder.jpg" 
+                alt="Ms. Tanisha Butler, Founder of Elevate Early Learning"
+                className="w-full h-full object-cover"
+              />
             </div>
 
             {/* Accent badge */}
