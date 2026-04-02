@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { fadeInUp, staggerContainer, viewportConfig } from "@/lib/animations";
+import { cardStagger, viewportConfig, hoverLift, hoverGlow } from "@/lib/animations";
 import { SERVICES } from "@/lib/constants";
 import {
   FileText,
@@ -43,10 +43,10 @@ export function Services() {
         </div>
 
         <motion.div
+          variants={cardStagger.container}
           initial="initial"
           whileInView="animate"
           viewport={viewportConfig}
-          variants={staggerContainer}
           className="grid md:grid-cols-2 lg:grid-cols-4 gap-6"
         >
           {SERVICES.map((service, index) => {
@@ -54,13 +54,31 @@ export function Services() {
             return (
               <motion.div
                 key={index}
-                variants={fadeInUp}
-                className="group bg-white rounded-2xl p-6 shadow-sm hover:shadow-lg transition-all duration-300 border border-[#E2E8F0] hover:border-[#2DD4BF]/50"
+                variants={cardStagger.item}
+                whileHover={{ 
+                  y: -8, 
+                  boxShadow: "0 20px 40px rgba(15, 23, 42, 0.08)",
+                  borderColor: "rgba(45, 212, 191, 0.3)"
+                }}
+                transition={{ duration: 0.3 }}
+                className="group bg-white rounded-2xl p-6 shadow-sm border border-[#E2E8F0] cursor-pointer"
               >
-                <div className="w-14 h-14 bg-[#0F172A] rounded-xl flex items-center justify-center mb-5 group-hover:bg-[#2DD4BF] transition-colors duration-300">
-                  {Icon && <Icon className="w-7 h-7 text-white" />}
-                </div>
-                <h3 className="text-lg font-semibold text-[#0F172A] mb-3">
+                <motion.div 
+                  className="w-14 h-14 bg-[#0F172A] rounded-xl flex items-center justify-center mb-5 transition-colors duration-300 group-hover:bg-[#2DD4BF]"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  {Icon && (
+                    <motion.div
+                      initial={{ rotate: 0 }}
+                      whileHover={{ rotate: 5 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <Icon className="w-7 h-7 text-white" />
+                    </motion.div>
+                  )}
+                </motion.div>
+                <h3 className="text-lg font-semibold text-[#0F172A] mb-3 group-hover:text-[#0F172A]">
                   {service.title}
                 </h3>
                 <p className="text-[#475569] text-sm leading-relaxed">
@@ -73,10 +91,10 @@ export function Services() {
 
         {/* CTA */}
         <motion.div
-          initial={fadeInUp.initial}
-          whileInView={fadeInUp.animate}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={viewportConfig}
-          transition={fadeInUp.transition}
+          transition={{ duration: 0.5, delay: 0.3 }}
           className="mt-16 text-center"
         >
           <p className="text-[#475569] mb-6">
@@ -84,11 +102,11 @@ export function Services() {
           </p>
           <a
             href="/contact"
-            className="inline-flex items-center gap-2 text-[#2DD4BF] font-semibold hover:underline"
+            className="inline-flex items-center gap-2 text-[#0F172A] font-semibold hover:text-[#2DD4BF] transition-colors group"
           >
             Let&apos;s discuss your needs
             <svg
-              className="w-4 h-4"
+              className="w-4 h-4 transition-transform group-hover:translate-x-1"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"

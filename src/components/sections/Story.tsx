@@ -3,23 +3,14 @@
 import { motion } from "framer-motion";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { fadeInUp, slideInLeft, slideInRight, viewportConfig } from "@/lib/animations";
-import { CheckCircle } from "lucide-react";
 import Image from "next/image";
-
-const features = [
-  "Over a decade of experience in early childhood education",
-  "Licensed by the Texas Department of Family and Protective Services",
-  "Masters Degree in Education (M.Ed.)",
-  "Passionate about child safety, development, and quality care",
-  "Dedicated to empowering centers, directors, and owners",
-];
 
 export function Story() {
   return (
     <section id="about" className="py-20 md:py-32 bg-white">
       <div className="max-w-7xl mx-auto px-6 md:px-8 lg:px-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Image */}
+          {/* Visual */}
           <motion.div
             initial={slideInLeft.initial}
             whileInView={slideInLeft.animate}
@@ -40,16 +31,16 @@ export function Story() {
               </div>
             </div>
 
-            {/* Experience Badge */}
+            {/* Accent badge - removed years stat */}
             <motion.div
               initial={{ scale: 0 }}
               whileInView={{ scale: 1 }}
               viewport={viewportConfig}
               transition={{ delay: 0.3, type: "spring" }}
-              className="absolute -bottom-6 -right-6 bg-[#2DD4BF] text-[#0F172A] rounded-2xl p-6 shadow-lg"
+              className="absolute -bottom-6 -right-6 bg-[#2DD4BF] text-[#0F172A] rounded-2xl p-5 shadow-lg"
             >
-              <div className="text-4xl font-bold">10+</div>
-              <div className="text-sm font-medium">Years Experience</div>
+              <div className="text-sm font-medium">Child Development</div>
+              <div className="text-xs opacity-80">Specialist</div>
             </motion.div>
           </motion.div>
 
@@ -67,44 +58,32 @@ export function Story() {
 
             <div className="space-y-6 text-[#475569] leading-relaxed">
               <p>
-                Elevate Early Learning & Consulting was founded by Ms. Tanisha Butler,
-                a passionate early childhood professional with a Master&apos;s Degree in
-                Education and over a decade of hands-on experience in the child care
-                industry.
+                Ms. Tanisha Butler founded Elevate Early Learning & Consulting with a deeply 
+                personal mission. After earning her Master&apos;s Degree in Child Development 
+                and successfully owning two child care centers, she experienced something that 
+                changed everything—the traumatic closure of one of her facilities due to 
+                circumstances that could have been prevented with proper guidance.
               </p>
 
               <p>
-                Licensed by the Texas Department of Family and Protective Services,
-                Tanisha has dedicated her career to ensuring that child care centers
-                across Texas operate with the highest standards of safety, quality,
-                and educational excellence.
+                That experience stayed with her. It became the driving force behind her work 
+                today. She knows firsthand the challenges that keep center owners awake at 
+                night—the compliance concerns, the safety protocols, the overwhelming feeling 
+                of trying to do everything right while keeping children safe and thriving.
               </p>
 
               <p>
-                Her mission is simple yet powerful: to ensure safety, quality, and
-                assurance—one child, one center, and one director at a time.
+                Now, she uses that hard-won knowledge to help other directors and owners 
+                navigate the same systems. Her goal is simple: prevent others from going 
+                through what she did. Every consultation, every policy review, every moment 
+                of guidance is rooted in real experience and genuine care for the people 
+                she serves.
+              </p>
+
+              <p className="text-[#0F172A] font-medium">
+                This isn&apos;t just consulting—it&apos;s partnership born from experience.
               </p>
             </div>
-
-            {/* Features List */}
-            <motion.div
-              initial="initial"
-              whileInView="animate"
-              viewport={viewportConfig}
-              className="mt-8 space-y-4"
-            >
-              {features.map((feature, index) => (
-                <motion.div
-                  key={index}
-                  variants={fadeInUp}
-                  custom={index}
-                  className="flex items-start gap-3"
-                >
-                  <CheckCircle className="w-5 h-5 text-[#2DD4BF] flex-shrink-0 mt-0.5" />
-                  <span className="text-[#0F172A]">{feature}</span>
-                </motion.div>
-              ))}
-            </motion.div>
           </motion.div>
         </div>
       </div>

@@ -51,9 +51,9 @@ export function ContactSection() {
             />
 
             <p className="text-[#475569] mb-8 leading-relaxed">
-              Ready to elevate your child care center? We&apos;re here to help you
-              achieve excellence in safety, quality, and educational outcomes.
-              Reach out to schedule your consultation.
+              Ready to elevate your child care center? We&apos;re here to provide 
+              guidance, support, and partnership every step of the way. Reach out 
+              to discuss how we can work together.
             </p>
 
             {/* Contact Details */}
@@ -84,16 +84,16 @@ export function ContactSection() {
               ))}
             </div>
 
-            {/* Quick CTA */}
+            {/* CTA */}
             <Link href="/contact">
               <Button size="lg">
-                Schedule a Consultation
+                Get in Touch
                 <ArrowRight className="w-4 h-4 ml-2" />
               </Button>
             </Link>
           </motion.div>
 
-          {/* Visual/Card */}
+          {/* Visual/Card - updated messaging */}
           <motion.div
             initial={slideInRight.initial}
             whileInView={slideInRight.animate}
@@ -107,10 +107,10 @@ export function ContactSection() {
                   <Mail className="w-10 h-10 text-[#0F172A]" />
                 </div>
                 <h3 className="text-2xl font-bold text-white mb-2">
-                  Free Consultation
+                  Start a Partnership
                 </h3>
                 <p className="text-white/70">
-                  Book a complimentary 30-minute session to discuss your needs
+                  We&apos;re here to support your center&apos;s growth and success
                 </p>
               </div>
 
@@ -119,14 +119,14 @@ export function ContactSection() {
                   <div className="w-8 h-8 bg-[#2DD4BF] rounded-full flex items-center justify-center flex-shrink-0">
                     <span className="text-[#0F172A] font-bold text-sm">1</span>
                   </div>
-                  <span className="text-white">Share your center&apos;s goals</span>
+                  <span className="text-white">Share your center&apos;s situation</span>
                 </div>
                 <div className="flex items-center gap-4 p-4 bg-white/5 rounded-xl">
                   <div className="w-8 h-8 bg-[#2DD4BF] rounded-full flex items-center justify-center flex-shrink-0">
                     <span className="text-[#0F172A] font-bold text-sm">2</span>
                   </div>
                   <span className="text-white">
-                    Get personalized recommendations
+                    Receive personalized guidance
                   </span>
                 </div>
                 <div className="flex items-center gap-4 p-4 bg-white/5 rounded-xl">
@@ -134,14 +134,14 @@ export function ContactSection() {
                     <span className="text-[#0F172A] font-bold text-sm">3</span>
                   </div>
                   <span className="text-white">
-                    Start your elevation journey
+                    Move forward with confidence
                   </span>
                 </div>
               </div>
 
               <Link href="/contact" className="block mt-8">
                 <Button size="lg" className="w-full">
-                  Get Started Today
+                  Connect With Us
                 </Button>
               </Link>
             </div>

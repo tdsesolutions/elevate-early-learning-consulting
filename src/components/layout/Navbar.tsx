@@ -15,7 +15,7 @@ export function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      setIsScrolled(window.scrollY > 50);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -34,11 +34,11 @@ export function Navbar() {
       <motion.header
         initial={{ y: -100 }}
         animate={{ y: 0 }}
-        transition={{ duration: 0.5 }}
+        transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
         className={cn(
-          "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+          "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
           isScrolled
-            ? "bg-[#0F172A]/90 backdrop-blur-xl shadow-lg"
+            ? "bg-[#0F172A]/95 backdrop-blur-xl shadow-lg"
             : "bg-transparent"
         )}
       >
@@ -65,13 +65,13 @@ export function Navbar() {
             </Link>
 
             {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-8">
+            <div className="hidden md:flex items-center space-x-1">
               {NAV_LINKS.map((link) => (
                 <button
                   key={link.name}
                   onClick={() => handleNavClick(link.href)}
                   className={cn(
-                    "relative text-sm font-medium transition-colors duration-200",
+                    "relative px-4 py-2 text-sm font-medium transition-colors duration-200",
                     isScrolled
                       ? "text-white/80 hover:text-white"
                       : "text-[#475569] hover:text-[#0F172A]"
@@ -80,11 +80,16 @@ export function Navbar() {
                   {link.name}
                   {activeSection === link.href.replace("#", "") && (
                     <motion.div
-                      layoutId="activeSection"
+                      layoutId="active-nav-underline"
                       className={cn(
-                        "absolute -bottom-1 left-0 right-0 h-0.5",
+                        "absolute bottom-0 left-2 right-2 h-0.5 rounded-full",
                         isScrolled ? "bg-[#2DD4BF]" : "bg-[#0F172A]"
                       )}
+                      transition={{ 
+                        type: "spring", 
+                        stiffness: 400, 
+                        damping: 30 
+                      }}
                     />
                   )}
                 </button>
@@ -102,7 +107,7 @@ export function Navbar() {
                     : "bg-[#0F172A] text-white hover:bg-[#1E293B]"
                 )}
               >
-                Schedule Consultation
+                Get in Touch
               </button>
             </div>
 
@@ -120,37 +125,39 @@ export function Navbar() {
         </nav>
       </motion.header>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu - Panel Style */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-40 bg-[#0F172A] pt-24 px-6 md:hidden"
+            className="fixed inset-0 z-40 bg-[#0F172A]/98 backdrop-blur-xl md:hidden"
           >
-            <div className="flex flex-col space-y-6">
+            <div className="flex flex-col justify-center h-full px-8">
               {NAV_LINKS.map((link, index) => (
                 <motion.button
                   key={link.name}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.1 }}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 20 }}
+                  transition={{ delay: index * 0.08, duration: 0.3 }}
                   onClick={() => handleNavClick(link.href)}
-                  className="text-2xl font-medium text-white text-left py-3 border-b border-white/10"
+                  className="text-3xl font-light text-white text-left py-4 border-b border-white/10 hover:text-[#2DD4BF] transition-colors"
                 >
                   {link.name}
                 </motion.button>
               ))}
               <motion.button
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: NAV_LINKS.length * 0.1 }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 20 }}
+                transition={{ delay: NAV_LINKS.length * 0.08, duration: 0.3 }}
                 onClick={() => handleNavClick("#contact")}
-                className="mt-4 w-full bg-[#2DD4BF] text-[#0F172A] py-4 rounded-lg font-medium text-lg"
+                className="mt-8 w-full bg-[#2DD4BF] text-[#0F172A] py-4 rounded-xl font-medium text-lg hover:bg-[#14B8A6] transition-colors"
               >
-                Schedule Consultation
+                Get in Touch
               </motion.button>
             </div>
           </motion.div>
