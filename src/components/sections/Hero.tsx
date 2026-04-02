@@ -22,9 +22,9 @@ export function Hero() {
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-[#0F172A]/3 rounded-full blur-3xl" />
 
       <div className="relative max-w-7xl mx-auto px-6 md:px-8 lg:px-10 py-20">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           {/* Content */}
-          <div className="max-w-2xl">
+          <div className="max-w-2xl order-1">
             {/* Main headline - staggered word reveal */}
             <motion.div
               variants={heroTextReveal.container}
@@ -88,7 +88,7 @@ export function Hero() {
               transition={{ duration: 0.6, delay: 1 }}
               className="flex items-center gap-4 mb-10 p-4 bg-white/60 backdrop-blur-sm rounded-xl border border-[#E2E8F0]"
             >
-              <div className="w-12 h-12 bg-[#2DD4BF]/10 rounded-full flex items-center justify-center">
+              <div className="w-12 h-12 bg-[#2DD4BF]/10 rounded-full flex items-center justify-center flex-shrink-0">
                 <span className="text-xl">👩‍🏫</span>
               </div>
               <div>
@@ -115,12 +115,28 @@ export function Hero() {
             </motion.div>
           </div>
 
-          {/* Right visual - illustration placeholder */}
+          {/* Mobile Image - visible on small screens, below content */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="relative lg:hidden order-2 mt-8"
+          >
+            <div className="aspect-[4/3] w-full rounded-xl overflow-hidden shadow-2xl">
+              <img 
+                src="/elevate-early-learning-consulting/images/hero.jpg" 
+                alt="Educational consultant collaborating with school leader"
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </motion.div>
+
+          {/* Desktop Image - hidden on mobile */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="relative hidden lg:block"
+            className="relative hidden lg:block order-2"
           >
             <motion.div
               animate={floatAnimation}
