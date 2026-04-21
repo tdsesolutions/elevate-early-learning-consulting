@@ -6,7 +6,7 @@ import { fadeInUp, slideInLeft, slideInRight, viewportConfig } from "@/lib/anima
 import Link from "next/link";
 import { Heart, MessageCircle } from "lucide-react";
 
-export function AboutContent() {
+export function MeetTanishaBContent() {
   return (
     <>
       {/* Hero Section */}
@@ -61,7 +61,7 @@ export function AboutContent() {
             >
               {/* Main heading */}
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#0F172A] leading-tight mb-8">
-                About{" "}
+                Meet{" "}
                 <span className="italic font-serif text-[#0F172A]">Tanisha B</span>
               </h1>
 
