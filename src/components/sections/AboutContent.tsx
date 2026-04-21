@@ -84,12 +84,10 @@ export function AboutContent() {
             transition={fadeInUp.transition}
             className="space-y-8"
           >
-            {/* Block 1 - Full bio start */}
-            <div className="bg-[#F8FAFC] rounded-2xl p-8 md:p-10">
-              <p className="text-lg text-[#475569] leading-relaxed">
-                My name is Tanisha Butler, M.S., but you can call me Tanisha B. I&apos;m an East Texas native who has called Houston home for over 20 years. I earned my degree in Political Science and my Master&apos;s in Child Development from Prairie View A&amp;M University and Texas Southern University, and I&apos;ve been rooted in early childhood care since the age of 15.
-              </p>
-            </div>
+            {/* Block 1 */}
+            <p className="text-lg text-[#475569] leading-relaxed">
+              I&apos;m an East Texas native who has called Houston home for over 20 years. I earned my degree in Political Science and my Master&apos;s in Child Development from Prairie View A&amp;M University and Texas Southern University, and I&apos;ve been rooted in early childhood care since the age of 15.
+            </p>
 
             {/* Block 2 - Highlighted */}
             <div className="bg-[#F8FAFC] rounded-2xl p-8 md:p-10">
