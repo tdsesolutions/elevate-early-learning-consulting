@@ -1,0 +1,8 @@
+1:"$Sreact.fragment"
+2:I[3265,["/elevate-early-learning-consulting/_next/static/chunks/01xlw8hd842-c.js","/elevate-early-learning-consulting/_next/static/chunks/0io2a~bqy4q1c.js","/elevate-early-learning-consulting/_next/static/chunks/05-fo27r.f1-1.js","/elevate-early-learning-consulting/_next/static/chunks/0iejlghn7xxaj.js"],"Navbar"]
+3:I[95769,["/elevate-early-learning-consulting/_next/static/chunks/01xlw8hd842-c.js","/elevate-early-learning-consulting/_next/static/chunks/0io2a~bqy4q1c.js","/elevate-early-learning-consulting/_next/static/chunks/05-fo27r.f1-1.js","/elevate-early-learning-consulting/_next/static/chunks/0iejlghn7xxaj.js"],"AboutContent"]
+4:I[58234,["/elevate-early-learning-consulting/_next/static/chunks/01xlw8hd842-c.js","/elevate-early-learning-consulting/_next/static/chunks/0io2a~bqy4q1c.js","/elevate-early-learning-consulting/_next/static/chunks/05-fo27r.f1-1.js","/elevate-early-learning-consulting/_next/static/chunks/0iejlghn7xxaj.js"],"Footer"]
+5:I[97367,["/elevate-early-learning-consulting/_next/static/chunks/01xlw8hd842-c.js","/elevate-early-learning-consulting/_next/static/chunks/0io2a~bqy4q1c.js"],"OutletBoundary"]
+6:"$Sreact.suspense"
+0:{"rsc":["$","$1","c",{"children":[[["$","$L2",null,{}],["$","main",null,{"className":"flex-1","children":["$","$L3",null,{}]}],["$","$L4",null,{}]],[["$","script","script-0",{"src":"/elevate-early-learning-consulting/_next/static/chunks/05-fo27r.f1-1.js","async":true}],["$","script","script-1",{"src":"/elevate-early-learning-consulting/_next/static/chunks/0iejlghn7xxaj.js","async":true}]],["$","$L5",null,{"children":["$","$6",null,{"name":"Next.MetadataOutlet","children":"$@7"}]}]]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"GgHftiktEXA981h9Sg67F"}
+7:null

@@ -1,7 +1,7 @@
 export const SITE_CONFIG = {
   name: "Elevate Early Learning & Consulting",
-  tagline: "Ensuring Safety, Quality, & Assurance one Child, Center & Director at a Time",
-  description: "Professional early childhood consulting for child care centers, directors, and owners. Led by Ms. Tanisha Butler, M.Ed.",
+  tagline: "One Child, One Director, & One Owner at a Time",
+  description: "Professional early childhood consulting for child care centers, directors, and owners. Led by Ms. Tanisha B.",
   contact: {
     address: "25700 I-45 N, Suite 4200",
     city: "The Woodlands, TX 77386",
@@ -13,7 +13,7 @@ export const SITE_CONFIG = {
 
 export const NAV_LINKS = [
   { name: "Home", href: "#home" },
-  { name: "About", href: "#about" },
+  { name: "About", href: "/about" },
   { name: "Services", href: "#services" },
   { name: "Contact", href: "#contact" },
 ];
