@@ -59,10 +59,15 @@ export function MeetTanishaBContent() {
               transition={slideInRight.transition}
               className="order-1 lg:order-2"
             >
-              {/* Main heading */}
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#0F172A] leading-tight mb-8">
-                Meet{" "}
-                <span className="italic font-serif text-[#0F172A]">Tanisha B</span>
+              {/* Main heading - Clean + Signature */}
+              <h1 className="leading-tight mb-8">
+                <span className="block text-3xl md:text-4xl font-bold text-[#0F172A] uppercase tracking-wide mb-2">
+                  Meet
+                </span>
+                <span className="block font-[family-name:var(--font-script)] text-6xl md:text-7xl lg:text-8xl text-[#0F172A] relative">
+                  Tanisha B
+                  <span className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#2DD4BF] to-transparent opacity-60"></span>
+                </span>
               </h1>
 
               {/* Intro paragraph */}
