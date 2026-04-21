@@ -22,7 +22,7 @@ export function Story() {
             <div className="aspect-[4/5] w-full rounded-xl overflow-hidden shadow-xl">
               <img 
                 src="/elevate-early-learning-consulting/images/founder.jpg" 
-                alt="Ms. Tanisha Butler, Founder of Elevate Early Learning"
+                alt="Tanisha B, Founder of Elevate Early Learning"
                 className="w-full h-full object-cover"
               />
             </div>
@@ -54,7 +54,7 @@ export function Story() {
 
             <div className="space-y-6 text-[#475569] leading-relaxed">
               <p>
-                Ms. Tanisha Butler founded Elevate Early Learning & Consulting with a deeply 
+                Tanisha B founded Elevate Early Learning & Consulting with a deeply 
                 personal mission. After earning her Master&apos;s Degree in Child Development 
                 and successfully owning two child care centers, she experienced something that 
                 changed everything—the traumatic closure of one of her facilities due to 
