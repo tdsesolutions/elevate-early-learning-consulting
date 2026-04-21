@@ -93,7 +93,7 @@ export function Hero() {
               </div>
               <div>
                 <p className="text-sm font-medium text-[#0F172A]">
-                  Led by Ms. Tanisha B
+                  Led by Ms. Tanisha Butler, M.Ed
                 </p>
                 <p className="text-sm text-[#475569]">
                   Child Development Specialist & Former Center Owner
