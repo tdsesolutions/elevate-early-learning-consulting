@@ -43,9 +43,10 @@ export function Navbar() {
     return isHomePage && activeSection === href.replace("#", "");
   };
 
-  // Nav link component - uses Link for external routes, button for anchor links
+  // Nav link component - handles both external routes and anchor links
   const NavLink = ({ link }: { link: { name: string; href: string } }) => {
-    const isExternal = link.href.startsWith("/");
+    const isAnchor = link.href.startsWith("#");
+    const isExternal = link.href.startsWith("/") && link.href !== "/";
     const active = isLinkActive(link.href);
     
     const baseClasses = cn(
@@ -55,6 +56,7 @@ export function Navbar() {
         : "text-[#475569] hover:text-[#0F172A]"
     );
 
+    // External routes like /meet-tanisha-b
     if (isExternal) {
       return (
         <Link
@@ -80,27 +82,137 @@ export function Navbar() {
       );
     }
 
+    // Home link
+    if (link.href === "/") {
+      return (
+        <Link
+          href="/"
+          className={baseClasses}
+        >
+          {link.name}
+          {active && (
+            <motion.div
+              layoutId="active-nav-underline"
+              className={cn(
+                "absolute bottom-0 left-2 right-2 h-0.5 rounded-full",
+                isScrolled || !isHomePage ? "bg-[#2DD4BF]" : "bg-[#0F172A]"
+              )}
+              transition={{ 
+                type: "spring", 
+                stiffness: 400, 
+                damping: 30 
+              }}
+            />
+          )}
+        </Link>
+      );
+    }
+
+    // Anchor links (#about, #services, #contact)
+    // On homepage: use button with scroll
+    // On other pages: use Link to /#anchor to navigate back to homepage
+    if (isHomePage) {
+      return (
+        <button
+          onClick={() => handleNavClick(link.href)}
+          className={baseClasses}
+        >
+          {link.name}
+          {active && (
+            <motion.div
+              layoutId="active-nav-underline"
+              className={cn(
+                "absolute bottom-0 left-2 right-2 h-0.5 rounded-full",
+                isScrolled || !isHomePage ? "bg-[#2DD4BF]" : "bg-[#0F172A]"
+              )}
+              transition={{ 
+                type: "spring", 
+                stiffness: 400, 
+                damping: 30 
+              }}
+            />
+          )}
+        </button>
+      );
+    }
+
+    // Not on homepage - use Link to navigate back to homepage with anchor
     return (
-      <button
-        onClick={() => handleNavClick(link.href)}
+      <Link
+        href={`/${link.href}`}
         className={baseClasses}
       >
         {link.name}
-        {active && (
-          <motion.div
-            layoutId="active-nav-underline"
-            className={cn(
-              "absolute bottom-0 left-2 right-2 h-0.5 rounded-full",
-              isScrolled || !isHomePage ? "bg-[#2DD4BF]" : "bg-[#0F172A]"
-            )}
-            transition={{ 
-              type: "spring", 
-              stiffness: 400, 
-              damping: 30 
-            }}
-          />
-        )}
-      </button>
+      </Link>
+    );
+  };
+
+  // Mobile nav item component
+  const MobileNavItem = ({ link, index }: { link: { name: string; href: string }, index: number }) => {
+    const isAnchor = link.href.startsWith("#");
+    const isExternal = link.href.startsWith("/") && link.href !== "/";
+    
+    const content = (
+      <motion.span
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: 20 }}
+        transition={{ delay: index * 0.08, duration: 0.3 }}
+        className="text-3xl font-light text-white text-left py-4 border-b border-white/10 hover:text-[#2DD4BF] transition-colors block"
+      >
+        {link.name}
+      </motion.span>
+    );
+    
+    // External routes
+    if (isExternal) {
+      return (
+        <Link
+          key={link.name}
+          href={link.href}
+          onClick={() => setIsMobileMenuOpen(false)}
+        >
+          {content}
+        </Link>
+      );
+    }
+    
+    // Home link
+    if (link.href === "/") {
+      return (
+        <Link
+          key={link.name}
+          href="/"
+          onClick={() => setIsMobileMenuOpen(false)}
+        >
+          {content}
+        </Link>
+      );
+    }
+    
+    // Anchor links
+    // On homepage: use button
+    // On other pages: use Link to navigate back to homepage with anchor
+    if (isHomePage) {
+      return (
+        <button
+          key={link.name}
+          onClick={() => handleNavClick(link.href)}
+        >
+          {content}
+        </button>
+      );
+    }
+    
+    // Not on homepage
+    return (
+      <Link
+        key={link.name}
+        href={`/${link.href}`}
+        onClick={() => setIsMobileMenuOpen(false)}
+      >
+        {content}
+      </Link>
     );
   };
 
@@ -187,41 +299,9 @@ export function Navbar() {
             className="fixed inset-0 z-40 bg-[#0F172A]/98 backdrop-blur-xl md:hidden"
           >
             <div className="flex flex-col justify-center h-full px-8">
-              {NAV_LINKS.map((link, index) => {
-                const isExternal = link.href.startsWith("/");
-                const content = (
-                  <motion.span
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 20 }}
-                    transition={{ delay: index * 0.08, duration: 0.3 }}
-                    className="text-3xl font-light text-white text-left py-4 border-b border-white/10 hover:text-[#2DD4BF] transition-colors block"
-                  >
-                    {link.name}
-                  </motion.span>
-                );
-                
-                if (isExternal) {
-                  return (
-                    <Link
-                      key={link.name}
-                      href={link.href}
-                      onClick={() => setIsMobileMenuOpen(false)}
-                    >
-                      {content}
-                    </Link>
-                  );
-                }
-                
-                return (
-                  <button
-                    key={link.name}
-                    onClick={() => handleNavClick(link.href)}
-                  >
-                    {content}
-                  </button>
-                );
-              })}
+              {NAV_LINKS.map((link, index) => (
+                <MobileNavItem key={link.name} link={link} index={index} />
+              ))}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
