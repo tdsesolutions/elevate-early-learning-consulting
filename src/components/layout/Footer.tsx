@@ -33,7 +33,7 @@ export function Footer() {
               <span className="text-2xl font-light text-[#2DD4BF]"> Early Learning</span>
             </Link>
             <p className="text-white/60 text-sm leading-relaxed">
-              Ensuring Safety, Quality, & Assurance one Child, Center & Director at a Time.
+              Ensuring Safety, Quality, & Assurance One Child, Center & Director at a Time.
             </p>
           </div>
 
