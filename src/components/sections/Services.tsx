@@ -9,22 +9,22 @@ const FEATURED_SERVICES = [
   {
     title: "Instructional Support",
     description: "Expert guidance on curriculum development, lesson planning, and instructional strategies tailored to early childhood education.",
-    image: "/elevate-early-learning-consulting/images/service-1.jpg",
+    image: "/images/service-1.jpg",
   },
   {
     title: "Staffing Solutions",
     description: "Comprehensive support for hiring, training, and retaining qualified early childhood educators and staff.",
-    image: "/elevate-early-learning-consulting/images/service-2.jpg",
+    image: "/images/service-2.jpg",
   },
   {
     title: "Program Development",
     description: "Strategic planning and systems development to create structured, compliant, and effective child care programs.",
-    image: "/elevate-early-learning-consulting/images/service-3.jpg",
+    image: "/images/service-3.jpg",
   },
   {
     title: "Student Engagement",
     description: "Proven approaches to create active, positive learning environments where children thrive and develop.",
-    image: "/elevate-early-learning-consulting/images/service-4.jpg",
+    image: "/images/service-4.jpg",
   },
 ];
 

@@ -105,7 +105,7 @@ export function ContactSection() {
             {/* Aspect Ratio 1:1 for Contact/CTA */}
             <div className="aspect-[1/1] w-full rounded-xl overflow-hidden shadow-xl">
               <img 
-                src="/elevate-early-learning-consulting/images/contact.jpg"
+                src="/images/contact.jpg"
                 alt="Partnership and collaboration"
                 className="w-full h-full object-cover"
               />

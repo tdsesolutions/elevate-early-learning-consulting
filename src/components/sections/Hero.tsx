@@ -124,7 +124,7 @@ export function Hero() {
           >
             <div className="aspect-[4/3] w-full rounded-xl overflow-hidden shadow-2xl">
               <img 
-                src="/elevate-early-learning-consulting/images/hero.jpg" 
+                src="/images/hero.jpg" 
                 alt="Educational consultant collaborating with school leader"
                 className="w-full h-full object-cover"
               />
@@ -145,7 +145,7 @@ export function Hero() {
               {/* Hero Illustration - Aspect Ratio 16:10 */}
               <div className="aspect-[16/10] w-full rounded-xl overflow-hidden shadow-2xl">
                 <img 
-                  src="/elevate-early-learning-consulting/images/hero.jpg" 
+                  src="/images/hero.jpg" 
                   alt="Educational consultant collaborating with school leader"
                   className="w-full h-full object-cover"
                 />

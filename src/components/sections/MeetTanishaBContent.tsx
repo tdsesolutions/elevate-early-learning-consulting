@@ -33,7 +33,7 @@ export function MeetTanishaBContent() {
                 {/* Main image */}
                 <div className="relative aspect-[3/4] w-full max-w-md mx-auto rounded-xl overflow-hidden shadow-2xl">
                   <img 
-                    src="/elevate-early-learning-consulting/ElevateBio.png" 
+                    src="/ElevateBio.png" 
                     alt="Tanisha B"
                     className="w-full h-full object-cover object-top"
                   />

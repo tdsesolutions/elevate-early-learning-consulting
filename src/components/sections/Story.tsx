@@ -21,7 +21,7 @@ export function Story() {
             {/* Aspect Ratio 4:5 */}
             <div className="aspect-[4/5] w-full rounded-xl overflow-hidden shadow-xl">
               <img 
-                src="/elevate-early-learning-consulting/images/founder.jpg" 
+                src="/images/founder.jpg" 
                 alt="Tanisha B, Founder of Elevate Early Learning"
                 className="w-full h-full object-cover"
               />
